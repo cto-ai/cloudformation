@@ -1,0 +1,16 @@
+# for more info visit https://cto.ai/docs/ops-reference
+version: "1"
+commands:
+  - name: cloudformation:1.0.0
+    public: true
+    remote: true
+    description: An Op to create and delete AWS CloudFormation stacks
+    run: node /ops/lib/index.js
+    sdk: "2"
+    sourceCodeURL: "https://github.com/cto-ai/cloudformation"
+    mountCwd: false
+    mountHome: false
+    port:
+      - 3000:3000
+    help:
+      usage: "ops run cloudformation"
