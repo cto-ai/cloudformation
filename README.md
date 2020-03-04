@@ -39,13 +39,13 @@ If you use `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` as the secret names t
 From your terminal:
 
 ```bash
-ops run cloudformation
+ops run @cto.ai/cloudformation
 ```
 
 From Slack:
 
 ```text
-/ops run cloudformation
+/ops run cto.ai/cloudformation
 ```
 
 ## Known Limitations
