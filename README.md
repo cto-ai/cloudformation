@@ -82,4 +82,4 @@ See the [Contributing Docs](CONTRIBUTING.md) for more information
 
 ## License
 
-[MIT](LICENSE.txt)
+[MIT](LICENSE)
