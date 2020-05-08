@@ -14,9 +14,8 @@ RUN rm -rf lib && npm run build
 ############################
 FROM registry.cto.ai/official_images/node:latest
 
-COPY package.json .
-RUN apt update \
-  && apt install -y --no-install-recommends \
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
   tar \
   python \
   openssh-client \
@@ -29,21 +28,22 @@ RUN apt update \
   libffi-dev \
   libssl-dev \
   python-setuptools \
+  python-wheel \
   && pip install --upgrade \
   awscli \
   boto \
   boto3 \
   botocore \
-  && apt remove -y \
+  && apt-get remove -y \
   python-pip \
   python-dev \
   libffi-dev \
   libssl-dev \
-  && apt autoremove -y \
-  && apt autoclean -y
+  && apt-get autoremove -y \
+  && apt-get clean -y \
+  && rm -rf /var/lib/apt/lists
 
+COPY package.json .
 WORKDIR /ops
-COPY --from=dep /ops/lib .
-COPY --from=dep /ops .
-
-RUN chown -R 9999 /ops && chgrp -R 9999 /ops
+COPY --from=dep --chown=9999:9999 /ops/lib .
+COPY --from=dep --chown=9999:9999 /ops .

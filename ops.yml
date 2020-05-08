@@ -10,7 +10,5 @@ commands:
     sourceCodeURL: "https://github.com/cto-ai/cloudformation"
     mountCwd: false
     mountHome: false
-    port:
-      - 3000:3000
     help:
       usage: "ops run cloudformation"
